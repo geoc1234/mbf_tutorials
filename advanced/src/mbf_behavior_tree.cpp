@@ -2,6 +2,7 @@
 #include <ros/ros.h>
 #include <behaviortree_cpp_v3/bt_factory.h>
 #include <mbf_advanced/mbf_circle_client.h>
+#include <behaviortree_cpp_v3/loggers/bt_zmq_publisher.h>
 
 using State = mbf_advanced::MBFCircleClientState;
 
@@ -114,6 +115,7 @@ int main(int argc, char** argv)
     factory.registerSimpleCondition("DriveHomeEnd", std::bind(DriveHome, std::ref(mbfclient)));
 
     auto tree = factory.createTreeFromFile(BT_XML_PATH);
+    BT::PublisherZMQ publisher_zmq(tree);
 
     for( auto& node: tree.nodes)
     {

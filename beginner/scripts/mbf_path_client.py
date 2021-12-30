@@ -47,14 +47,7 @@ def get_plan(pose):
 
 def drive_circle():
     target_poses = [   
-        create_pose(-1.75, 0.74, 0, 0, 0, 0.539, 0.843),
-        create_pose(-0.36, 1.92, 0, 0, 0, -0.020, 0.999),
-        create_pose(0.957, 1.60, 0, 0, 0, -0.163, 0.987),
-        create_pose(1.8741, 0.3830, 0, 0, 0, -0.70, 0.711),
-        create_pose(1.752, -0.928, 0, 0, 0, -0.856, 0.517),
-        create_pose(0.418, -2.116, 0, 0, 0, 0.998, 0.0619),
-        create_pose(-0.775, -1.80, 0, 0, 0, 0.954, 0.300),
-        create_pose(-1.990, -0.508, 0, 0, 0, -0.112, 0.999)
+        create_pose(0.0, 0.0, 0, 0, 0, -0.020, 0.999)
     ]
 
     for target_pose in target_poses:
@@ -69,7 +62,7 @@ def drive_circle():
 
         exe_path_result = exe_path(path_goal)
         if exe_path_result.outcome != mbf_msgs.MoveBaseResult.SUCCESS:
-            rospy.loginfo("Unable to complete exe: %s", result.message)
+            rospy.loginfo("Unable to complete exe:")
             return 
 
 

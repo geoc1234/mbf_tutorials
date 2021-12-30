@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(BehaviorTreeV3 REQUIRED)
+find_package(ZMQ)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
